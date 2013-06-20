@@ -52,6 +52,7 @@ var ADS = (function () {
             var $body = $(body);
             _this.viewer = new DCaseViewer(document.getElementById("viewer"), null, _this.isLogin(userId));
             _this.timelineView = new TimeLineView($body, _this.viewer, _this.isLogin(userId));
+            _this.markdowneditor = new MarkdownEditor($body, _this.viewer, _this.isLogin(userId));
             _this.viewer.dcase_latest = null;
             $(window).bind("beforeunload", function (e) {
                 if(_this.viewer.dcase_latest != null && _this.viewer.dcase_latest.isChanged()) {

@@ -5,6 +5,7 @@
 ///<reference path='importfile.ts'/>
 ///<reference path='dcaseviewer.ts'/>
 ///<reference path='timeline.ts'/>
+///<reference path='markdowneditor.ts'/>
 ///<reference path='dnode.ts'/>
 
 class ADS {
@@ -14,6 +15,7 @@ class ADS {
 	selectDCaseView: SelectDCaseView;
 	createDCaseView: CreateDCaseView;
 	timelineView   : TimeLineView;
+	markdowneditor : MarkdownEditor;
 
 
 	getLoginUserorNull() {
@@ -122,6 +124,7 @@ class ADS {
 			this.viewer = new DCaseViewer(document.getElementById("viewer"),
 					null, this.isLogin(userId));
 			this.timelineView = new TimeLineView($body, this.viewer, this.isLogin(userId));
+			this.markdowneditor = new MarkdownEditor($body, this.viewer, this.isLogin(userId));
 			this.viewer.dcase_latest = null;
 
 			$(window).bind("beforeunload", (e)=> {
